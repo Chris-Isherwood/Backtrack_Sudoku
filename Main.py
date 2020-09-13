@@ -49,10 +49,25 @@ class Sudoku():
             self.canvas.create_line(0, 3 * self.height // 9, self.width, 3 * self.height // 9, width = 3),
         ]
 
-    
+        self.sudoku = [
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0]]
+
+    def gridLocation(self, eventorigin):
+        x = 1 + int(9 * eventorigin.x // self.width)
+        y = 1 + int(9 * eventorigin.y // self.height)
+        print(x, y)
 
 #Run the application
 if __name__ == '__main__':
     Application = MainApplication()
-    Sudoku(Application)
+    test = Sudoku(Application)
+    test.canvas.bind('<Button-1>', test.gridLocation)
     Application.root.mainloop()
